@@ -1,0 +1,3 @@
+/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/readersWriters/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/readersWriters/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/readersWriters/cmake-build-debug/CMakeFiles/readersWriters.dir
