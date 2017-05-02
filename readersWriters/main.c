@@ -79,10 +79,8 @@ void *writer(int *id) {
         phase_count++;
         printf("setting phase count %d", phase_count);
         if  (phase_count == 0) {
-            //pthread_cond_broadcast(&read_phase);
-            pthread_cond_signal(&write_phase);
-        } else if (phase_count > 0) {
             pthread_cond_broadcast(&read_phase);
+            pthread_cond_signal(&write_phase);
         }
     pthread_mutex_unlock(&mutex);
 }
