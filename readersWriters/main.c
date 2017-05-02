@@ -6,29 +6,30 @@
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 //create global count variables
-int read_count = 0;
-int write_count = 0;
+//int read_count = 0;
+//int write_count = 0;
+int phase_count = 0;
 
 //create global conditional variable
-pthread_cond_t no_readers;
-pthread_cond_t no_writers;
+pthread_cond_t read_phase;
+pthread_cond_t write_phase;
 
 void *reader(int* id) {
     //usleep(1000 * (random() % 10));
     //acquire mutex. Wait if condition is not satisfied
     pthread_mutex_lock(&mutex);
-        while (write_count > 0) {
-            pthread_cond_wait(&no_writers, &mutex);
+        while (phase_count < 0) {
+            pthread_cond_wait(&read_phase, &mutex);
         }
         printf("\nstarting reader thread %d \n", *id);
-        read_count++;
+        phase_count++;
     pthread_mutex_unlock(&mutex);
 
     //perform READ
     printf("performing read...\n");
     FILE *fp;
     //fp = fopen(path, "r");
-    fp = fopen("<filepath>", "r");
+    fp = fopen("<path>", "r");
     char buf[150];
     while(!feof(fp)) {
         fgets(buf, 150, fp);
@@ -42,9 +43,9 @@ void *reader(int* id) {
     //reacquire mutex. Update conditional variable and broadcast readers and signal writers
     pthread_mutex_lock(&mutex);
         printf("read performed. \n");
-        read_count--;
-        if (read_count == 0) {
-            pthread_cond_signal(&no_readers);
+        phase_count--;
+        if (phase_count == 0) {
+            pthread_cond_signal(&write_phase);
         }
     pthread_mutex_unlock(&mutex);
 }
@@ -53,32 +54,35 @@ void *writer(int *id) {
     //usleep(1000 * (random() % 10));
     //acquire mutex. Wait if condition is not satisfied.
     pthread_mutex_lock(&mutex);
-        while (read_count > 0) {
-            pthread_cond_wait(&no_readers, &mutex);
-            while (write_count > 0) {
-                pthread_cond_wait(&no_writers, &mutex);
-            }
+        while (phase_count != 0) {
+            //printf("waiting .... %d\n", *id);
+            pthread_cond_wait(&write_phase, &mutex);
+            //printf("done waiting .... %d\n", *id);
         }
         printf("\nstarting writer thread %d \n", *id);
-        write_count++;
+        phase_count--;
     pthread_mutex_unlock(&mutex);
 
     //perform WRITE
     printf("performing write...\n");
     FILE *fp;
     //fp = fopen(path, "r");
-    fp = fopen("<filepath>", "a");
+    fp = fopen("<path>", "a");
     fprintf(fp, "\nwrite from thread %d", *id);
     fflush(fp);
     fclose(fp);
     printf("File closed.\n");
-
+    printf("phase_count %d\n", phase_count);
     //reacquire mutex. Update conditional variable and boadcast readers and signal writers.
     pthread_mutex_lock(&mutex);
         printf("write performed. \n");
-        write_count--;
-        if  (write_count == 0) {
-            pthread_cond_broadcast(&no_writers);
+        phase_count++;
+        printf("setting phase count %d", phase_count);
+        if  (phase_count == 0) {
+            //pthread_cond_broadcast(&read_phase);
+            pthread_cond_signal(&write_phase);
+        } else if (phase_count > 0) {
+            pthread_cond_broadcast(&read_phase);
         }
     pthread_mutex_unlock(&mutex);
 }
