@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <pthread.h>
 #define NUM_THREADS 10
 
@@ -11,21 +12,35 @@ int write_count = 0;
 pthread_cond_t no_readers;
 pthread_cond_t no_writers;
 
-void *reader(void *arg) {
+void *reader(int* id) {
+
     //acquire mutex. Wait if condition is not satisfied
     pthread_mutex_lock(&mutex);
         while (write_count > 0) {
             pthread_cond_wait(&no_writers, &mutex);
         }
+        printf("\nstarting %d \n", *id);
         read_count++;
     pthread_mutex_unlock(&mutex);
 
     //perform READ
+    printf("performing read:\n");
     FILE *fp;
-    char buf[255];
+    //fp = fopen(path, "r");
+    fp = fopen("<filepath>", "r");
+    char buf[150];
+    while(!feof(fp)) {
+        fgets(buf, 150, fp);
+        printf(buf);
+        //fflush(stdout);
+    }
+    fflush(stdout);
+    fclose(fp);
+    printf("\nFile closed\n");
 
     //reacquire mutex. Update conditional variable and broadcast readers and signal writers
     pthread_mutex_lock(&mutex);
+        printf("read performed. \n");
         read_count--;
         if (read_count == 0) {
             pthread_cond_signal(&no_readers);
@@ -57,21 +72,33 @@ void *writer(void *arg) {
 }
 
 int main() {
+
     int i;
     pthread_t tid[NUM_THREADS];
-    for (i = 0; i < NUM_THREADS; i++) {
-        int threadId = tid[i];
-        if (i % 2 == 0) {
-            pthread_create(&tid[i], NULL, reader, threadId);
-        } else {
-            pthread_create(&tid[i], NULL, writer, threadId);
-        }
+    int threadId[NUM_THREADS];
 
+    for (i = 0; i < NUM_THREADS; i++) {
+        threadId[i] = i;
+
+        if (i % 2 == 0) {
+            printf("\n creating thread %d", threadId[i]);
+            pthread_create(&tid[i], NULL, reader, &threadId[i]);
+        } else {
+            pthread_create(&tid[i], NULL, writer, &threadId[i]);
+        }
     }
+
+
+     /*
+    int n = 1;
+    pthread_create(&tid[i], NULL, reader, &n);
+    */
+
     for (i = 0; i < NUM_THREADS; i++) {
         pthread_join(tid[i], NULL);
     }
-    printf("Finished running.\n");
+
+    printf("\nFinished running.\n");
     return 0;
 }
 
