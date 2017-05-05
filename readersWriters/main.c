@@ -57,11 +57,7 @@ void *writer(int *id) {
     //acquire mutex. Wait if condition is not satisfied.
     pthread_mutex_lock(&mutex);
         while (phase_count != 0) {
-            //printf("waiting .... %d\n", *id);
-            //printf("phase count: %d\n", phase_count);
             pthread_cond_wait(&write_phase, &mutex);
-            //printf("done waiting .... %d\n", *id);
-            //printf("phase count: %d\n", phase_count);
         }
         printf("\nStarting writer thread %d \n", *id);
         phase_count--;
