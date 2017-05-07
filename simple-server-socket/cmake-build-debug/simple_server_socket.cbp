@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="simple_server_socket"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="simple_server_socket">
+				<Option output="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/simple_server_socket" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 simple_server_socket"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="simple_server_socket/fast">
+				<Option output="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/simple_server_socket" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 simple_server_socket/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/main.c">
+			<Option target="simple_server_socket"/>
+		</Unit>
+		<Unit filename="/Users/justintumale/Desktop/_TECH/GitHub/operating-systems-course/simple-server-socket/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
