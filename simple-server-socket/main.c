@@ -40,5 +40,11 @@ int main() {
     server_address.sin_addr.s_addr = INADDR_ANY;
     server_address.sin_port = htons(port_number);
 
+    //3. Bind the host address using the bind call
+    if (bind(socket_fd, (struct sockaddr*) &server_address, sizeof(server_address)) < 0) {
+        perror("Error binding the socket to the host address");
+        return -1;
+    }
+
     return 0;
 }
