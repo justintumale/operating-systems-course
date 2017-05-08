@@ -1,4 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#include <netdb.h>
+#include <netinet/in.h>
+
+#include <string.h>
 
 /*
  * Write a simple C program that creates and initializes a server socket. Once initialized, the server should accept a
@@ -7,6 +13,24 @@
  */
 
 int main() {
-    printf("Hello, World!\n");
+    int socket_fd;
+    int newsocket_fd;
+    int port_number;
+    int client_length;
+
+    char buffer[256];
+
+    struct sockaddr_in server_address;
+    struct sockaddr_in client_address;
+
+    int n;
+
+    //1. Create the socket
+    socket_fd = socket(AF_INET, SOCK_STREAM, 0);
+    if (socket_fd < 0) {
+        printf("Error opening the socket.");
+        return -1;
+    }
+
     return 0;
 }
