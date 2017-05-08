@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <netdb.h>
 #include <netinet/in.h>
@@ -56,6 +57,15 @@ int main() {
 
     if (newsocket_fd < 0) {
         perror("Error accepting client socket connection");
+        return -1;
+    }
+
+    //5. If connection is established, start communicating
+    bzero(buffer, 256);
+    n = read(newsocket_fd, buffer, 255);
+
+    if (n<0) {
+        perror("Error writing to socket");
         return -1;
     }
 
