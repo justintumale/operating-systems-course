@@ -46,5 +46,18 @@ int main() {
         return -1;
     }
 
+    //4. Program socket to start listening for clients
+        //have this thread sleep until a client attempts a connection
+    listen(socket_fd, 5);
+
+        //accept connection from client
+    client_length = sizeof(client_address);
+    newsocket_fd = accept(socket_fd, (struct sockaddrr*)&client_address, &client_length);
+
+    if (newsocket_fd < 0) {
+        perror("Error accepting client socket connection");
+        return -1;
+    }
+
     return 0;
 }
