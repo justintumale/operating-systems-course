@@ -10,7 +10,7 @@
 
 int main() {
     //Create client socket
-    int client_socket_fd = socket(AF_INET, SOCK_STREAM, 0)
+    int client_socket_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (client_socket_fd < 0) {
         perror("Error creating client socket");
         return -1;

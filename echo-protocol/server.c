@@ -57,7 +57,7 @@ int main() {
     //If connection is established, start communication
     char buffer[256];
     bzero(buffer, 256);
-    n = read(client_socket_fd, buffer, 255);
+    int n = read(client_socket_fd, buffer, 255);
 
     if (n < 0) {
         perror("Error writing to client socket");

@@ -34,7 +34,7 @@ int main() {
     }
 
     //2. Initialize socket structure
-    bzero((char*) &server_address, sizeof(server_address);
+    bzero((char*) &server_address, sizeof(server_address));
     port_number = 6000;
 
     server_address.sin_family = AF_INET;
