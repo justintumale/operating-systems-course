@@ -7,6 +7,6 @@
 #include <stdio.h>
 
 int main() {
-
+    //Create client socket that specifies server hostname and port number
     return 0;
 }
