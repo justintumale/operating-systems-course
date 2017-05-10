@@ -20,10 +20,10 @@ int main() {
     struct sockaddr_in server_socket;
     server_socket.sin_family = AF_INET;
     server_socket.sin_port = htons(80);
-    server_socket.sin_addr.s_addr = inet("XX.XX.XX.XX");
+    server_socket.sin_addr.s_addr = inet_addr("XX.XX.XX.XX");
 
-    int connect = connect(client_socket_fd, (struct sockaddr*) &server_socket, sizeof(server_socket));
-    if (connect < 0) {
+    int connected = connect(client_socket_fd, (struct sockaddr*) &server_socket, sizeof(server_socket));
+    if (connected < 0) {
         perror("Error connecting to server socket");
         return -1;
     }

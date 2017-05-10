@@ -34,12 +34,12 @@ int main() {
     port_number = 6000;
 
     server_address.sin_family = AF_INET;
-    server_address.sin_addr.s_addr = IN_ANY;
+    server_address.sin_addr.s_addr = INADDR_ANY;
     server_address.sin_port = htons(port_number);
 
     //Bind socket to server address
-    int bind = bind(socket_fd, (struct sockaddr*) server_address, sizeof(server_address));
-    if (bind < 0) {
+    int binded = bind(socket_fd, (struct sockaddr*)&server_address, sizeof(server_address));
+    if (binded < 0) {
         perror("Error binding server socket");
         return -1;
     }
