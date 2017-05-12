@@ -14,6 +14,8 @@
 #include <string.h>
 
 int main() {
+    printf("Start server...\n");
+
     int socket_fd;
     int client_socket_fd;
     int port_number;
@@ -23,13 +25,15 @@ int main() {
     struct sockaddr_in client_address;
 
     //Create server socket
+    printf("Creating server socket\n");
     socket_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (socket_fd < 0) {
-        perror("Error creating server socket");
+        perror("Error creating server socket\n");
         return -1;
     }
-
+    
     //Initialize the socket structure
+    printf("Initializing the socket structure\n");
     bzero((char*)&server_address, sizeof(server_address));
     port_number = 6000;
 
@@ -38,6 +42,7 @@ int main() {
     server_address.sin_port = htons(port_number);
 
     //Bind socket to server address
+    printf("Binding the socket to server address\n");
     int binded = bind(socket_fd, (struct sockaddr*)&server_address, sizeof(server_address));
     if (binded < 0) {
         perror("Error binding server socket");
@@ -45,10 +50,12 @@ int main() {
     }
 
     //Listen for clients
+    printf("Listening for clients...\n");
     listen(socket_fd, 5);
 
     //Create client socket through accepted connection
-    client_socket_fd = accept(socket_fd, (struct sockaddr*)&client_address, &client_length);
+
+    client_socket_fd = accept(socket_fd, (struct sockaddr*)&client_address, (socklen_t*)&client_length);
     if (client_socket_fd < 0) {
         perror("Error establishing connection with client socket");
         return -1;
@@ -63,6 +70,7 @@ int main() {
         perror("Error writing to client socket");
         return -1;
     }
+    printf("Message received\n");
 
     return 0;
 }
