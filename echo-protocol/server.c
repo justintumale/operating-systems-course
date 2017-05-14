@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
 #include <netdb.h>
 #include <netinet/in.h>
 
@@ -65,12 +64,21 @@ int main() {
     char buffer[256];
     bzero(buffer, 256);
     int n = read(client_socket_fd, buffer, 255);
-    printf("%s", buffer);
 
     if (n < 0) {
         perror("Error writing to client socket");
         return -1;
     }
+
+    int i = 0;
+    while(buffer[i])
+    {
+        buffer[i] = toupper(buffer[i]);
+        i++;
+    }
+
+    send(client_socket_fd, buffer, 13, 0);
+
     printf("Message received\n");
 
     return 0;

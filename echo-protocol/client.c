@@ -31,11 +31,14 @@ int main() {
         perror("Error connecting to server socket");
         return -1;
     }
-    printf("Connected to server.");
-    
+    printf("Connected to server.\n");
+
     char buffer[1024];
     strcpy(buffer, "Hello World\n");
     send(client_socket_fd, buffer, 13, 0);
+
+    int n = read(client_socket_fd, buffer, 255);
+    printf("%s", buffer);
 
 
     return 0;
