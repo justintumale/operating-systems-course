@@ -31,7 +31,7 @@ int main() {
         perror("Error creating server socket\n");
         return -1;
     }
-    
+
     //Initialize the socket structure
     printf("Initializing the socket structure\n");
     bzero((char*)&server_address, sizeof(server_address));
@@ -65,6 +65,7 @@ int main() {
     char buffer[256];
     bzero(buffer, 256);
     int n = read(client_socket_fd, buffer, 255);
+    printf("%s", buffer);
 
     if (n < 0) {
         perror("Error writing to client socket");

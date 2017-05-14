@@ -32,12 +32,11 @@ int main() {
         return -1;
     }
     printf("Connected to server.");
-
-    /*
+    
     char buffer[1024];
     strcpy(buffer, "Hello World\n");
     send(client_socket_fd, buffer, 13, 0);
-    */
+
 
     return 0;
 }
